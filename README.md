@@ -5,7 +5,7 @@
 
 ## Greetr.js
 
-`Greeter.js` will:
+`Greetr.js` will:
 - generate formal and informal greetings given a first name, last name, and language
 - be reusable
 - alias to G$
