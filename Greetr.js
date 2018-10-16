@@ -67,12 +67,7 @@
 					break
 			}
 
-			if(console){
-				console.log(msg);
-			}
-
-			// the return allows this method to be chainable
-			return this;
+			return msg;
 		},
 
 		log: function(){
@@ -80,6 +75,7 @@
 				console.log(logMessages[this.language] + ': ' + this.fullName())
 			}
 
+			// the return allows this method to be chainable
 			return this;
 		},
 
@@ -89,7 +85,25 @@
 			this.validate();
 
 			return this;
-		}
+		},
+
+		displayGreeting: function(selector, level){
+			if (!$) {
+				throw 'No jQuery';
+			}
+
+			if (!selector) {
+				throw 'Missing jQuery selector';
+			}
+
+			var msg = this.greet(level);
+
+			$(selector).html(msg);
+
+			return this;
+		},
+
+
 
 	}; /* end of object literal for Greetr prototype */
 
@@ -100,6 +114,8 @@
 		self.firstName = firstName || '';
 		self.lastName = lastName || '';
 		self.language = language || 'en';
+
+		self.validate();
 
 	}
 
